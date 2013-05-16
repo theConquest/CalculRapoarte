@@ -1,11 +1,14 @@
-package Rapoarte2;
+package ro.marius.rapoarte.util;
 
-public class CalculatorUtil {           //update diferente, inmultiri etc
+public class CalculatorUtil { // update diferente, inmultiri etc
+	
 	private static double sumaPosuri;
-	public static void calculate(double d1, double d2){
+
+	public static void calculate(double d1, double d2) {
 		sumaPosuri = d1 + d2;
 	}
-	public static double getCalculate(){
+
+	public static double getCalculate() {
 		return sumaPosuri;
 	}
 }

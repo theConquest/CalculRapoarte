@@ -1,4 +1,6 @@
-package Rapoarte2;
+package ro.marius.rapoarte.ui;
+
+import ro.marius.rapoarte.util.CalculatorUtil;
 
 public class ButtonC{  //update un arrayList eventual
 	
