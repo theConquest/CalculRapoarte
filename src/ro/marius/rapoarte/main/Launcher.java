@@ -1,6 +1,7 @@
 package ro.marius.rapoarte.main;
 
 import java.awt.Color;
+
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -9,6 +10,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import ro.marius.rapoarte.util.TestForNull;
 
 import ro.marius.rapoarte.ui.ButtonC;
 import ro.marius.rapoarte.util.ExportFile;
@@ -107,6 +110,7 @@ public class Launcher {
 
 		buttonC.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				testVar();
 				getVar();
 			}
 		});
@@ -126,11 +130,24 @@ public class Launcher {
 		setPos2(POS2TF.getText());
 
 		ButtonC bc = new ButtonC();
-		bc.createLine(getOra(), getPos1(), getPos2());
-
+		if(getPos1().equals("")){
+			bc.createLine(getOra(), "0", getPos2());
+		}else if(getPos2().equals("")){
+			bc.createLine(getOra(), getPos1(), "0");
+		}else{
+			bc.createLine(getOra(), getPos1(), getPos2());
+		}
 		result = bc.getLine(); // String-ul final pt export
 
 		System.out.println(result);
+	}
+	public static void testVar(){
+		setOra(oraTF.getText());
+		setPos1(POS1TF.getText());
+		setPos2(POS2TF.getText());
+		
+		TestForNull tfn = new TestForNull();
+		tfn.testForNull(getOra(), getPos1(), getPos2());//apel catre TestForNull
 	}
 
 }
